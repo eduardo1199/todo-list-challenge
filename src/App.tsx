@@ -8,16 +8,16 @@ export function App() {
       </div>
       <div className="flex w-full justify-center">
         <div className="w-[736px] ">
-          <div className="mt-[-27px]">
+          <form className="mt-[-27px] flex gap-2">
             <input 
               type="text" 
               className="bg-gray-500 rounded-lg w-[638px] p-4 h-[54px] border border-gray-700" 
               placeholder="Adicione uma nova tarefa" 
             />
-            <button>
-              Criar
+            <button type="button" className="flex flex-1 h-[52px] justify-center items-center gap-8 rounded-lg bg-blue-dark hover:bg-blue transition-colors">
+              <p className="text-gray-200 font-bold text-sm">Criar</p>
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
