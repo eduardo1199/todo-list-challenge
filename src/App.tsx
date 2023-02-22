@@ -15,7 +15,7 @@ export function App() {
               placeholder="Adicione uma nova tarefa"
             />
             <button
-              type="button"
+              type="submit"
               className="flex flex-1 h-[52px] justify-center items-center gap-8 rounded-lg focus:ring-purple-dark focus:ring-2 bg-blue-dark focus:outline-none hover:bg-blue transition-colors"
             >
               <p className="text-gray-200 font-bold text-sm">Criar</p>
