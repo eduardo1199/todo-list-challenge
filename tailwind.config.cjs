@@ -17,6 +17,9 @@ module.exports = {
         'blue-dark': '#1E6F9F',
         Danger: '#E25858',
       },
+      boxShadow: {
+        regular: '0px 2px 8px rgba(0, 0, 0, 0.06);',
+      },
     },
   },
   plugins: [],
