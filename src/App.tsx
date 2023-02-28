@@ -1,3 +1,4 @@
+import { Clipboard } from 'phosphor-react'
 import logo from './assets/Logo.svg'
 
 export function App() {
@@ -7,7 +8,7 @@ export function App() {
         <img src={logo} alt="Rocket todo list" />
       </div>
       <div className="flex w-full justify-center">
-        <div className="w-[736px] ">
+        <div className="w-[736px]">
           <form className="mt-[-27px] flex gap-2">
             <input
               type="text"
@@ -21,6 +22,35 @@ export function App() {
               <p className="text-gray-200 font-bold text-sm">Criar</p>
             </button>
           </form>
+          <div className="flex flex-col mt-16">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex gap-2 items-center">
+                <span className="text-sm font-bold text-blue">
+                  Tarefas criadas
+                </span>
+                <div className="px-2 py-[2px] bg-gray-400 rounded-full text-gray-200 font-bold text-xs">
+                  <p>0</p>
+                </div>
+              </div>
+              <div className="flex gap-2 items-center">
+                <span className="text-sm font-bold text-purple">
+                  Concluídas
+                </span>
+                <div className="px-2 py-[2px] bg-gray-400 rounded-full text-gray-200 font-bold text-xs">
+                  <p>0</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center items-center mt-16">
+              <Clipboard size={56} className="text-gray-400" />
+              <strong className="block mt-4 font-bold text-base text-gray-300">
+                Você ainda não tem tarefas cadastradas
+              </strong>
+              <span className="text-base text-gray-300">
+                Crie tarefas e organize seus itens a fazer
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
