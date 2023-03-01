@@ -1,6 +1,7 @@
 import { Form } from './components/Form'
 import { Header } from './components/Header'
 import { TodoList } from './components/TodoList'
+import { TodoContextProvider } from './context/TodoContextProvider'
 
 export function App() {
   return (
@@ -8,9 +9,11 @@ export function App() {
       <Header />
       <div className="flex w-full justify-center">
         <div className="w-[736px]">
-          <Form />
+          <TodoContextProvider>
+            <Form />
 
-          <TodoList />
+            <TodoList />
+          </TodoContextProvider>
         </div>
       </div>
     </div>
