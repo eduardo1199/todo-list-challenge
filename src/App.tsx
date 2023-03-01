@@ -1,15 +1,12 @@
 // import { Clipboard } from 'phosphor-react'
-import logo from './assets/Logo.svg'
-
 import * as Checkbox from '@radix-ui/react-checkbox'
 import { Check, Trash } from 'phosphor-react'
+import { Header } from './components/Header'
 
 export function App() {
   return (
     <div className="h-screen">
-      <div className="h-[200px] w-full flex items-center justify-center bg-gray-700">
-        <img src={logo} alt="Rocket todo list" />
-      </div>
+      <Header />
       <div className="flex w-full justify-center">
         <div className="w-[736px]">
           <form className="mt-[-27px] flex gap-2">
