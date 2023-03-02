@@ -10,10 +10,14 @@ interface TodoCheckBoxProps {
 }
 
 export function TodoCheckBox({ id, label, mark }: TodoCheckBoxProps) {
-  const { toggleMarkTask } = useContext(TodoContext)
+  const { toggleMarkTask, removeTodo } = useContext(TodoContext)
 
   function handleCheckTodo(id: string) {
     toggleMarkTask(id)
+  }
+
+  function handleRemoveTodo(id: string) {
+    removeTodo(id)
   }
 
   return (
@@ -37,7 +41,7 @@ export function TodoCheckBox({ id, label, mark }: TodoCheckBoxProps) {
           {label}
         </label>
       </Checkbox.Root>
-      <button type="button">
+      <button type="button" onClick={() => handleRemoveTodo(id)}>
         <Trash size={14} className="text-gray-300" />
       </button>
     </div>

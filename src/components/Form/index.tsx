@@ -12,7 +12,7 @@ interface Todo {
 }
 
 const todoFormSchema = z.object({
-  query: z.string(),
+  query: z.string().min(1),
 })
 
 type TodoFormData = z.infer<typeof todoFormSchema>
