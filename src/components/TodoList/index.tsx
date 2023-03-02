@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { TodoContext } from '../../context/TodoContextProvider'
 import { SummaryHeaderTodoList } from './SummaryHeaderTodoList'
 import { TodoCheckBox } from './TodoCheckBox'
+import { EmptyTodoList } from './EmptyTodoList'
 
 export function TodoList() {
   const { todos } = useContext(TodoContext)
@@ -11,6 +12,8 @@ export function TodoList() {
       <SummaryHeaderTodoList />
 
       <div className="flex flex-col gap-3">
+        {todos.length === 0 && <EmptyTodoList />}
+
         {todos.map((todo) => {
           return (
             <TodoCheckBox

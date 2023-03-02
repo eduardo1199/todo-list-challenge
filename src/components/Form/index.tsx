@@ -18,7 +18,7 @@ const todoFormSchema = z.object({
 type TodoFormData = z.infer<typeof todoFormSchema>
 
 export function Form() {
-  const { register, handleSubmit } = useForm<TodoFormData>({
+  const { register, handleSubmit, reset } = useForm<TodoFormData>({
     resolver: zodResolver(todoFormSchema),
   })
 
@@ -32,6 +32,8 @@ export function Form() {
     }
 
     addNewTodo(newTodo)
+
+    reset()
   }
 
   return (
