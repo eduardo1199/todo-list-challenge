@@ -1,26 +1,43 @@
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import uuid from 'react-uuid'
+import { useContext } from 'react'
+import { TodoContext } from '../../context/TodoContextProvider'
 
-const taskFormSchema = z.object({
+interface Todo {
+  label: string
+  id: string
+  mark: boolean
+}
+
+const todoFormSchema = z.object({
   query: z.string(),
 })
 
-type TaskFormData = z.infer<typeof taskFormSchema>
+type TodoFormData = z.infer<typeof todoFormSchema>
 
 export function Form() {
-  const { register, handleSubmit } = useForm<TaskFormData>({
-    resolver: zodResolver(taskFormSchema),
+  const { register, handleSubmit } = useForm<TodoFormData>({
+    resolver: zodResolver(todoFormSchema),
   })
 
-  function handleCreateNewTask(data: TaskFormData) {
-    console.log(data)
+  const { addNewTodo } = useContext(TodoContext)
+
+  function handleCreateNewTodo(data: TodoFormData) {
+    const newTodo: Todo = {
+      id: uuid(),
+      label: data.query,
+      mark: false,
+    }
+
+    addNewTodo(newTodo)
   }
 
   return (
     <form
       className="mt-[-27px] flex gap-2"
-      onSubmit={handleSubmit(handleCreateNewTask)}
+      onSubmit={handleSubmit(handleCreateNewTodo)}
     >
       <input
         className="bg-gray-500 rounded-lg w-[638px] p-4 h-[54px] border border-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-dark"
