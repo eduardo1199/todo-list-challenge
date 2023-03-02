@@ -9,6 +9,8 @@ interface Todo {
 interface TodoContentContext {
   todos: Todo[]
   addNewTodo: (todo: Todo) => void
+  toggleMarkTask: (id: string) => void
+  removeTodo: (id: string) => void
 }
 
 interface TodoContextProviderProps {
@@ -24,8 +26,28 @@ export function TodoContextProvider({ children }: TodoContextProviderProps) {
     setTodos((state) => [...state, todo])
   }
 
+  function toggleMarkTask(id: string) {
+    setTodos((state) =>
+      state.map((todo: Todo) => {
+        if (todo.id === id) {
+          return { ...todo, mark: !todo.mark }
+        } else {
+          return todo
+        }
+      }),
+    )
+  }
+
+  function removeTodo(id: string) {
+    const todosWithRemovedTask = todos.filter((todo: Todo) => todo.id !== id)
+
+    setTodos(todosWithRemovedTask)
+  }
+
   return (
-    <TodoContext.Provider value={{ todos, addNewTodo }}>
+    <TodoContext.Provider
+      value={{ todos, addNewTodo, toggleMarkTask, removeTodo }}
+    >
       {children}
     </TodoContext.Provider>
   )
